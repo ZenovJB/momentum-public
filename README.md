@@ -11,9 +11,13 @@ A lot of the lesser modules are pasted, most of them have been rewritten in the 
 Some code used from:
 
 Memeszz's Aurora
+
 Hoosier's Gamesense
+
 Bon55's Badlion+
+
 086's Kami
+
 LittleDraily's HOPE
 
 If you weren't properly creditted and want to be added to the list dm on discord at linus touch tips#0001
