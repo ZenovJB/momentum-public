@@ -1,0 +1,16 @@
+[
+{
+  "modid": "momentum",
+  "name": "Momentum",
+  "description": "public custom base utility mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["linustouchtips24"],
+  "credits": "The Forge and FML guys, 086, LittleDraily, ZeroMemes, Sponge Powered",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

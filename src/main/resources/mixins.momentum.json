@@ -1,0 +1,25 @@
+{
+  "required": true,
+  "package": "me.linus.momentum.mixins",
+  "refmap": "mixins.momentum.refmap.json",
+  "minVersion": "0.7.3",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinNetworkManager",
+    "MixinMainMenu",
+    "MixinInventory",
+    "MixinPlayerMP",
+    "MixinEntityRender",
+    "MixinBossBarOverlay",
+    "MixinArmorLayer",
+    "MixinPlayer",
+    "MixinAbstractClientPlayer",
+    "MixinRenderItem",
+    "MixinLivingEntityRender",
+    "MixinPlayerControllerMP",
+    "MixinPlayerModel"
+  ],
+  "client": [
+    "MixinPlayerSP"
+  ]
+}

@@ -1,0 +1,226 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = 'forge'
+            url = 'http://files.minecraftforge.net/maven'
+        }
+        maven {
+            name = 'SpongePowered'
+            url = 'http://repo.spongepowered.org/maven'
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'com.github.johnrengelman.shadow'
+project.ext.lwjglVersion = "3.2.0"
+version project.modVersion
+project.ext.lwjglNatives = "natives-windows"
+group project.modGroup // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = project.forgeVersion
+    runDir = 'run'
+    mappings = project.mcpVersion
+    coreMod = 'me.linus.momentum.mixins.MixinLoaderForge'
+    makeObfSourceJar = false
+}
+
+repositories {
+    maven {
+        name = 'spongepowered-repo'
+        url = 'http://repo.spongepowered.org/maven/'
+    }
+    maven {
+        name = 'impactdevelopment-repo'
+        url = 'https://impactdevelopment.github.io/maven/'
+    }
+    maven {
+        name = 'swt-repo'
+        url = "http://maven-eclipse.github.io/maven"
+    }
+    maven {
+        name = "jitpack.io"
+        url = "https://jitpack.io"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    //mixin needs to be distributed with the mod, very important
+    compile 'club.minnced:java-discord-rpc:2.0.1'
+    compile("org.spongepowered:mixin:0.7.4-SNAPSHOT") {
+        exclude module: 'launchwrapper'
+        exclude module: 'guava'
+        exclude module: 'gson'
+        exclude module: 'commons-io'
+    }
+    compile "org.lwjgl:lwjgl:3.2.1"
+    compile "org.lwjgl:lwjgl-stb:3.2.1"
+    compile "org.lwjgl:lwjgl-glfw:3.2.1"
+    compile "org.lwjgl:lwjgl-opengl:3.2.1"
+    compile "org.lwjgl:lwjgl-openal:3.2.1"
+    compile "org.lwjgl:lwjgl:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-assimp:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-bgfx:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-egl:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-glfw:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-jawt:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-jemalloc:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-lmdb:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-lz4:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-nanovg:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-nfd:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-nuklear:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-odbc:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-openal:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-opencl:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-opengl:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-opengles:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-openvr:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-ovr:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-par:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-remotery:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-rpmalloc:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-sse:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-stb:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-tinyexr:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-tinyfd:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-tootle:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-vma:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-vulkan:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-xxhash:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-yoga:$lwjglVersion"
+    compile "org.lwjgl:lwjgl-zstd:$lwjglVersion"
+    compile "org.lwjgl:lwjgl:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-assimp:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-bgfx:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-glfw:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-jemalloc:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-lmdb:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-lz4:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-nanovg:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-nfd:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-nuklear:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-openal:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-opengl:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-opengles:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-openvr:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-ovr:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-par:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-remotery:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-rpmalloc:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-sse:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-stb:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-tinyexr:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-tinyfd:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-tootle:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-vma:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-xxhash:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-yoga:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl-zstd:$lwjglVersion:$lwjglNatives"
+    compile "org.lwjgl:lwjgl:3.2.1:natives-windows"
+    compile "org.lwjgl:lwjgl-stb:3.2.1:natives-windows"
+    compile "org.lwjgl:lwjgl-glfw:3.2.1:natives-windows"
+    compile "org.lwjgl:lwjgl-opengl:3.2.1:natives-windows"
+    compile "org.lwjgl:lwjgl-openal:3.2.1:natives-windows"
+    compile "org.lwjgl:lwjgl:3.2.1:natives-linux"
+    compile "org.lwjgl:lwjgl-stb:3.2.1:natives-linux"
+    compile "org.lwjgl:lwjgl-glfw:3.2.1:natives-linux"
+    compile "org.lwjgl:lwjgl-opengl:3.2.1:natives-linux"
+    compile "org.lwjgl:lwjgl-openal:3.2.1:natives-linux"
+    compile "org.lwjgl:lwjgl:3.2.1:natives-macos"
+    compile "org.lwjgl:lwjgl-stb:3.2.1:natives-macos"
+    compile "org.lwjgl:lwjgl-glfw:3.2.1:natives-macos"
+    compile "org.lwjgl:lwjgl-opengl:3.2.1:natives-macos"
+    compile "org.lwjgl:lwjgl-openal:3.2.1:natives-macos"
+    compile "org.joml:joml:1.9.13"
+    compile "com.google.code.gson:gson:2.8.5"
+    compile "com.google.code.findbugs:annotations:3.0.0"
+    compile "com.github.ZeroMemes:Alpine:1.5"
+
+    compile group: 'net.jodah', name: 'typetools', version: '0.5.0'
+    compile group: "com.googlecode.json-simple", name: "json-simple", version: "1.1.1"
+    compile(group: 'org.reflections', name: 'reflections', version: '0.9.11') {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+    implementation 'org.jetbrains:annotations:15.0'
+}
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+
+    // move _at.cfg into META-INF
+    rename '(.+_at.cfg)', 'META-INF/$1'
+}
+
+shadowJar {
+    dependencies {
+        include(dependency('org.spongepowered:mixin'))
+        include(dependency('com.github.ZeroMemes:Alpine'))
+        include(dependency('net.jodah:typetools'))
+        include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
+    }
+    exclude 'dummyThing'
+    exclude 'LICENSE.txt'
+    classifier = 'build'
+}
+
+mixin {
+    defaultObfuscationEnv searge
+    add sourceSets.main, 'mixins.momentum.refmap.json'
+}
+
+reobf {
+    jar {
+        mappingType = 'SEARGE'
+    }
+
+    shadowJar {
+        mappingType = 'SEARGE'
+        classpath = sourceSets.main.compileClasspath
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'MixinConfigs': 'mixins.momentum.json',
+                'tweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+                'TweakOrder': 0,
+                'FMLCorePluginContainsFMLMod': 'true',
+                'FMLCorePlugin': 'me.linus.momentum.mixins.MixinLoaderForge',
+                'ForceLoadAsMod': 'true',
+                'FMLAT': 'momentum_at.cfg'
+        )
+    }
+}
+
+build.dependsOn(shadowJar)

@@ -1,35 +1,21 @@
 # Momentum
 
-So this is a pretty old version (almost 3 weeks old, keep in mind a lot has changed since then) of the client and I intended for this version to be public. I had trouble with some obfuscating problems so I just decided to release the source because I couldn't be bothered to fix it. Some people were also calling it kami, so :/
+Momentum is a utility mod for Minecraft anarchy servers. Most of the code is written from scratch, any pasted code will be properly credited in the read-me. If you feel that you have not been creditted, feel free to contact me at linus touch tips#3905. The client is public and will be updated as frequently as possible. The discord can be found here: https://discord.gg/Nvd4xSJ
 
-Anyways, this was my first attempt at a custom base client so you'll likely see an unimaginable amount of spagghetti code and if-else statements. I removed some of the modules's src either because they are in a newer version of momentum or they were just pure spagghetti code. Enjoy?
+# Developers/Contributors:
 
-# Releases
+linustouchtips24 (owner)
 
-I will be releasing the obfuscated version of the client with the old crystal aura, and longjump on the discord which can be found here: https://discord.gg/4N9Pq3m
+xcc8
 
-DO NOT BE EXPECT THIS TO BE UPDATED OR NEW RELEASES TO COME OUT
-
-We have since gone private.
+jrepxc
 
 # Credits
 
-A lot of the lesser modules are pasted, most of them have been rewritten in the newer version, but still I am going to credit the pasted code here.
+[086's](https://github.com/zeroeightysix) [KAMI](https://github.com/zeroeightysix/KAMI) for the Events and Tesselator
 
-Some code used from:
+[ZeroMemes's](https://github.com/ZeroMemes) [Alpine](https://github.com/ZeroMemes/Alpine) for the Event System
 
-Memeszz's Aurora
+[LittleDraily](https://github.com/LittleDraily) for [HOPE](https://github.com/LittleDraily/HOPE)
 
-Hoosier's Gamesense
-
-Bon55's Badlion+
-
-086's Kami
-
-LittleDraily's HOPE
-
-If you weren't properly creditted and want to be added to the list dm on discord at linus touch tips#0001
-
-# Contributing
-
-just skid it, im not going to be reviewing pr's
+SpongePowered for MixinsHandler
