@@ -14,6 +14,7 @@ Memeszz's Aurora
 Hoosier's Gamesense
 Bon55's Badlion+
 086's Kami
+LittleDraily's HOPE
 
 If you weren't properly creditted and want to be added to the list dm on discord at linus touch tips#0001
 
