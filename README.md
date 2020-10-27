@@ -31,3 +31,5 @@ If you weren't properly creditted and want to be added to the list dm on discord
 
 # Contributing
 just skid it, im not going to be reviewing pr's
+
+don't expect support either 
